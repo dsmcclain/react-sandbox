@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HelloWorld renders and matches our snapshot 1`] = `
+<div
+  className="HelloWorld"
+>
+  Hello
+   
+  Person
+  !
+  <br />
+  <button
+    className="fredify"
+    onClick={[Function]}
+  >
+    Fredify!
+  </button>
+  <button
+    className="remove"
+    onClick={[Function]}
+  >
+    Remove Me!
+  </button>
+</div>
+`;
