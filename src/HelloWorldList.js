@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './HelloWorldList.css';
 import AddPeople from './AddPeople';
 
+import WidgetFrame from './WidgetFrame';
 import HelloWorld from './HelloWorld';
 
 class HelloWorldList extends Component {
@@ -14,11 +15,13 @@ class HelloWorldList extends Component {
 
     renderGreetings() {
         return this.state.people.map(name => (
-            <HelloWorld 
-            key={name} 
-            name={name}
-            removePeople={this.removePeople}
-            />
+            <WidgetFrame title={name} children = {
+                <HelloWorld 
+                key={name} 
+                name={name}
+                removePeople={this.removePeople}
+                />
+            } />
         ));
     }
 

@@ -1,0 +1,19 @@
+.widget-frame {
+    margin: 20px;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #E6E9ED;
+}
+.widget-frame-header {
+    border-bottom: 2px solid #E6E9ED;
+    padding: 1px;
+    margin-bottom: 10px;
+    height: 35px;
+}
+.widget-frame-header .title {
+    font-size: 18px;
+    float: left;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
