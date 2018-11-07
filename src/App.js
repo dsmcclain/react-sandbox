@@ -1,10 +1,10 @@
 import React from 'react';
-import HelloWorldList from './HelloWorldList';
+import DashboardLayout from './DashboardLayout';
 
 const App = () => {
   return (
     <div className="App">
-      <HelloWorldList />
+      <DashboardLayout />
     </div>
   );
 };
