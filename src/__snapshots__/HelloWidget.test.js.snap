@@ -1,19 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HelloWorld renders and matches our snapshot 1`] = `
+exports[`HelloWidget renders and matches our snapshot 1`] = `
 <div
-  className="HelloWorld"
+  className="HelloWidget"
 >
   Hello
    
   Person
   !
   <br />
+  This greeting has been abbreviated 
+  0
+   times.
+  <br />
   <button
-    className="fredify"
+    className="abbreviate"
     onClick={[Function]}
   >
-    Fredify!
+    Abbreviate
   </button>
   <button
     className="remove"

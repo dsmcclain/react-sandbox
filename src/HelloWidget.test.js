@@ -23,9 +23,9 @@ describe(HelloWidget, () => {
         expect(component.text()).toContain(name);
     });
 
-    it('modifies the greeting when fredify button is clicked', () => {
-        component.find('button.fredify').simulate('click');
-        expect(component.text()).toContain('Yaba Daba Doo');
+    it('modifies the greeting when abbreviate button is clicked', () => {
+        component.find('button.abbreviate').simulate('click');
+        expect(component.text()).toContain('Hi');
     });
 
     it('calls the passed in removePeople function when remove button is clicked', () => {

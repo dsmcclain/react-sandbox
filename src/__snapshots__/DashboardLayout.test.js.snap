@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DashboardLayout renders and matches our snapshot 1`] = `
+<div
+  className="DashboardLayout"
+>
+  <div
+    className="AddPeople"
+  >
+    <input
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+      
+    <button
+      onClick={[Function]}
+    >
+      Add
+    </button>
+  </div>
+  <div
+    className="widget-frame"
+  >
+    <div
+      className="widget-frame-header"
+    >
+      <span
+        className="title"
+      >
+        Jim
+      </span>
+    </div>
+    <div
+      className="widget-frame-content"
+    >
+      <div
+        className="HelloWidget"
+      >
+        Hello
+         
+        Jim
+        !
+        <br />
+        This greeting has been abbreviated 
+        0
+         times.
+        <br />
+        <button
+          className="abbreviate"
+          onClick={[Function]}
+        >
+          Abbreviate
+        </button>
+        <button
+          className="remove"
+          onClick={[Function]}
+        >
+          Remove Me!
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className="widget-frame"
+  >
+    <div
+      className="widget-frame-header"
+    >
+      <span
+        className="title"
+      >
+        Beth
+      </span>
+    </div>
+    <div
+      className="widget-frame-content"
+    >
+      <div
+        className="HelloWidget"
+      >
+        Hello
+         
+        Beth
+        !
+        <br />
+        This greeting has been abbreviated 
+        0
+         times.
+        <br />
+        <button
+          className="abbreviate"
+          onClick={[Function]}
+        >
+          Abbreviate
+        </button>
+        <button
+          className="remove"
+          onClick={[Function]}
+        >
+          Remove Me!
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

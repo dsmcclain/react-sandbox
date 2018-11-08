@@ -13,8 +13,8 @@ class HelloWidget extends Component {
   }
 
   abbreviate() {
-      const fredness = this.state.greeting;
-      if (fredness === 'Hello') {
+      const greetState = this.state.greeting;
+      if (greetState === 'Hello') {
         this.setState({ greeting: 'Hi' });
         this.setState({ AbbreviationCount: this.state.AbbreviationCount + 1 });
       } else {
