@@ -8,20 +8,24 @@ import HelloWidget from './HelloWidget';
 class DashboardLayout extends Component {
     constructor(props) {
         super(props);
-        this.state = { people: ['Jim', 'Beth'] };
+        this.state = { 
+            people: ['Jim', 'Beth'],
+            editable: false,
+        };
         this.addPeople = this.addPeople.bind(this);
         this.removePeople = this.removePeople.bind(this);
+        this.onEdit = this.onEdit.bind(this);
     }
 
     renderGreetings() {
         return this.state.people.map(name => (
-            <WidgetFrame title={name} children = {
-                <HelloWidget 
-                key={name} 
-                name={name}
-                removePeople={this.removePeople}
-                />
-            } />
+                <WidgetFrame title={name} children = {
+                    <HelloWidget 
+                    key={name} 
+                    name={name}
+                    removePeople={this.removePeople}
+                    />
+                } />
         ));
     }
 
@@ -36,11 +40,20 @@ class DashboardLayout extends Component {
         this.setState({ people:filteredPeople });
     }
 
+    onEdit() {
+        this.state.editable ? this.setState({ editable: false }) : this.setState({ editable: true });
+    }
+
     render() {
         return (
-            <div className="DashboardLayout">
+            <div className="DashboardLayout container">
+                <div className="editButton">
+                    <button  onClick={this.onEdit}>Edit</button>
+                </div>
                 <AddPeople addPeople={this.addPeople} />
-                {this.renderGreetings()}
+                <div className="widget-rows">
+                    {this.renderGreetings()}
+                </div>
             </div>
         );
     }

@@ -1,6 +1,22 @@
 .DashboardLayout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 20px;
     padding: 20px;
     border: 2px solid #00D8FF;
     background: #DEF;
+}
+.DashboardLayout.container {
+    align-self: stretch;
+    flex-direction: column;
+}
+.DashboardLayout .editButton {
+    align-self: flex-start;
+}
+.DashboardLayout .widget-rows {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-self: stretch;
+    display: inline-flex;
 }
