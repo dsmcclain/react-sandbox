@@ -17,3 +17,6 @@
     overflow: hidden;
     white-space: nowrap;
 }
+.widget-frame-header .close {
+    float: right;
+}

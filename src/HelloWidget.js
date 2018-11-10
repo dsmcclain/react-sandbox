@@ -9,7 +9,6 @@ class HelloWidget extends Component {
         AbbreviationCount: 0,
       };
       this.abbreviate = this.abbreviate.bind(this);
-      this.removePeople = this.removePeople.bind(this);
   }
 
   abbreviate() {
@@ -22,10 +21,6 @@ class HelloWidget extends Component {
       };
   }
 
-  removePeople() {
-      this.props.removePeople(this.props.name);
-  }
-  
   render() {
     return (
       <div className="HelloWidget">
@@ -34,7 +29,6 @@ class HelloWidget extends Component {
         This greeting has been abbreviated {this.state.AbbreviationCount} times.
         <br />
         <button className="abbreviate" onClick={this.abbreviate}>Abbreviate</button>
-        <button className="remove" onClick={this.removePeople}>Remove Me!</button>
       </div>
     );
   }
