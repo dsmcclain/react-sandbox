@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './DashboardLayout.css';
 import AddPeople from './AddPeople';
+import AddWidget from './AddWidget';
 
 import WidgetFrame from './WidgetFrame';
 import HelloWidget from './HelloWidget';
@@ -13,6 +14,7 @@ class DashboardLayout extends Component {
             editable: false,
         };
         this.addPeople = this.addPeople.bind(this);
+        this.addWidget = this.addWidget.bind(this);
         this.onRemove = this.onRemove.bind(this);
         this.onEdit = this.onEdit.bind(this);
     }
@@ -36,6 +38,10 @@ class DashboardLayout extends Component {
         this.setState({ people: [...this.state.people, newName] });
     }
 
+    addWidget(newName) {
+        this.setState({ people: [...this.state.people, newName] });
+    }
+
     onRemove(removeName) {
         const filteredPeople = this.state.people.filter(name => {
             return name !== removeName;
@@ -56,6 +62,7 @@ class DashboardLayout extends Component {
                     <button  onClick={this.onEdit}>Edit</button>
                 </div>
                 <AddPeople addPeople={this.addPeople} />
+                {this.state.editable && <AddWidget addWidget={this.addWidget} />}
                 <div className="widget-rows">
                     {this.renderGreetings()}
                 </div>

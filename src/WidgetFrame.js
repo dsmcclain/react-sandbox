@@ -18,7 +18,7 @@ class WidgetFrame extends Component {
             <div className="widget-frame">
                 <div className="widget-frame-header">
                     <span className="title">{this.props.title}</span>
-                    {this.props.editable && <button className="close" onClick={this.onRemove}>Close</button>}
+                    {this.props.editable && <button className="close" onClick={this.onRemove}>&times;</button>}
                 </div>
                 <div className="widget-frame-content">
                     {this.props.children}
