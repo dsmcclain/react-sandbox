@@ -13,18 +13,21 @@ class DashboardLayout extends Component {
             editable: false,
         };
         this.addPeople = this.addPeople.bind(this);
-        this.removePeople = this.removePeople.bind(this);
+        this.onRemove = this.onRemove.bind(this);
         this.onEdit = this.onEdit.bind(this);
     }
 
     renderGreetings() {
         return this.state.people.map(name => (
-                <WidgetFrame title={name} children = {
-                    <HelloWidget 
-                    key={name} 
-                    name={name}
-                    removePeople={this.removePeople}
-                    />
+                <WidgetFrame 
+                    editable={this.state.editable} 
+                    title={name} 
+                    onRemove={this.onRemove}
+                    children = {
+                        <HelloWidget 
+                        key={name} 
+                        name={name}
+                        />
                 } />
         ));
     }
@@ -33,7 +36,7 @@ class DashboardLayout extends Component {
         this.setState({ people: [...this.state.people, newName] });
     }
 
-    removePeople(removeName) {
+    onRemove(removeName) {
         const filteredPeople = this.state.people.filter(name => {
             return name !== removeName;
         });
@@ -41,7 +44,9 @@ class DashboardLayout extends Component {
     }
 
     onEdit() {
-        this.state.editable ? this.setState({ editable: false }) : this.setState({ editable: true });
+        this.setState({
+            editable: !this.state.editable,
+        });
     }
 
     render() {
