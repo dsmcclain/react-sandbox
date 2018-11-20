@@ -4,8 +4,8 @@
     align-items: center;
     margin: 20px;
     padding: 20px;
-    border: 2px solid #00D8FF;
-    background: #DEF;
+    border: 2px solid #ff9999;
+    background: #ffd9cc;
 }
 .DashboardLayout.container {
     align-self: stretch;
