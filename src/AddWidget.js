@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './AddWidget.css';
 
 class AddWidget extends Component {
     constructor(props) {
@@ -21,7 +22,7 @@ class AddWidget extends Component {
     render() {
         return (
             this.props.widgetTypes.map(widgetType => (
-            <div className="AddWidget">
+            <div className="add-widget">
                     <span>{widgetType}</span>
                     <button className='add-widget-button'
                             value={widgetType} 
