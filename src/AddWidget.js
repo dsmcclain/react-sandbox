@@ -4,25 +4,30 @@ class AddWidget extends Component {
     constructor(props) {
         super(props);
         this.state = { widgetChoice: ''};
-        
-        this.widgetChoice = this.widgetChoice.bind(this);
+
+        this.selectWidget = this.selectWidget.bind(this);
         this.addWidget = this.addWidget.bind(this);
     }
 
     addWidget() {
-        this.props.addWidget(this.state.widgetChoice)
+        this.props.addWidget(this.state.widgetChoice);
     }
 
-    widgetChoice() {
-        this.setState({ widgetChoice: 'Hello Widget' });
+    selectWidget(e) {
+        this.setState({ widgetChoice: e.target.value});
+        this.addWidget();
     }
 
     render() {
         return (
+            this.props.widgetTypes.map(widgetType => (
             <div className="AddWidget">
-                <button onClick={this.widgetChoice}>Hello Widget</button>
-                <button className="add-widget-button" onClick={this.addWidget}>Add</button>
+                    <span>{widgetType}</span>
+                    <button className='add-widget-button'
+                            value={widgetType} 
+                            onClick={this.addWidget}>Add</button>
             </div>
+            ))
         );
     }
 }

@@ -11,6 +11,7 @@ class DashboardLayout extends Component {
         super(props);
         this.state = { 
             people: ['Jim', 'Beth'],
+            widgetTypes: ['Hello Widget', 'Fake Widget'],
             editable: false,
         };
         this.addPeople = this.addPeople.bind(this);
@@ -62,7 +63,10 @@ class DashboardLayout extends Component {
                     <button  onClick={this.onEdit}>Edit</button>
                 </div>
                 <AddPeople addPeople={this.addPeople} />
-                {this.state.editable && <AddWidget addWidget={this.addWidget} />}
+                {this.state.editable && <AddWidget
+                                         widgetTypes = {this.state.widgetTypes} 
+                                         addWidget={this.addWidget} 
+                                         />}
                 <div className="widget-rows">
                     {this.renderGreetings()}
                 </div>
