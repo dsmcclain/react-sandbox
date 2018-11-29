@@ -63,6 +63,11 @@ class DashboardLayout extends Component {
                     <button  onClick={this.onEdit}>Edit</button>
                 </div>
                 <AddPeople addPeople={this.addPeople} />
+                <div className="searchBar">
+                    <input type="text" className="input" placeholder="Search..." />
+                    <ul>
+                    </ul>
+                </div>
                 {this.state.editable && <AddWidget
                                          widgetTypes = {this.state.widgetTypes} 
                                          addWidget={this.addWidget} 
