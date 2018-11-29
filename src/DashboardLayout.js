@@ -5,6 +5,7 @@ import AddWidget from './AddWidget';
 
 import WidgetFrame from './WidgetFrame';
 import HelloWidget from './HelloWidget';
+import People from './Search.js';
 
 class DashboardLayout extends Component {
     constructor(props) {
@@ -63,11 +64,7 @@ class DashboardLayout extends Component {
                     <button  onClick={this.onEdit}>Edit</button>
                 </div>
                 <AddPeople addPeople={this.addPeople} />
-                <div className="searchBar">
-                    <input type="text" className="input" placeholder="Search..." />
-                    <ul>
-                    </ul>
-                </div>
+                <People items={this.state.people}/>
                 {this.state.editable && <AddWidget
                                          widgetTypes = {this.state.widgetTypes} 
                                          addWidget={this.addWidget} 
