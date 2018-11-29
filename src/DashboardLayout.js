@@ -13,6 +13,7 @@ class DashboardLayout extends Component {
             people: ['Jim', 'Beth'],
             widgetTypes: ['Hello Widget', 'Fake Widget'],
             editable: false,
+            search: "",
         };
         this.addPeople = this.addPeople.bind(this);
         this.addWidget = this.addWidget.bind(this);
@@ -20,19 +21,29 @@ class DashboardLayout extends Component {
         this.onEdit = this.onEdit.bind(this);
     }
 
-    renderGreetings() {
-        return this.state.people.map(name => (
-                <WidgetFrame 
-                    editable={this.state.editable} 
-                    title={name} 
-                    onRemove={this.onRemove}
-                    children = {
-                        <HelloWidget 
-                        key={name} 
-                        name={name}
-                        />
-                } />
-        ));
+    renderGreetings = (name) => {
+        const {search} = this.state;
+
+        if( search !== "" && name.toLowerCase().indexOf( search.toLowerCase() ) === -1 ){
+            return null
+        }
+
+        return (
+            <WidgetFrame 
+                editable={this.state.editable} 
+                title={name} 
+                onRemove={this.onRemove}
+                children = {
+                    <HelloWidget 
+                    key={name} 
+                    name={name}
+                    />
+            } />
+        );
+    }
+
+    onChange = e => {
+        this.setState({ search: e.target.value });
     }
 
     addPeople(newName) {
@@ -63,12 +74,17 @@ class DashboardLayout extends Component {
                     <button  onClick={this.onEdit}>Edit</button>
                 </div>
                 <AddPeople addPeople={this.addPeople} />
+                <input placeholder="search..." onChange={this.onChange} />
                 {this.state.editable && <AddWidget
                                          widgetTypes = {this.state.widgetTypes} 
                                          addWidget={this.addWidget} 
                                          />}
                 <div className="widget-rows">
-                    {this.renderGreetings()}
+                    {
+                        this.state.people.map(name => {
+                            return this.renderGreetings(name)
+                        })
+                    }
                 </div>
             </div>
         );
