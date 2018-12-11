@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './TrackingWidget.css';
+import AddTracking from './AddTracking.js';
 
 class TrackingWidget extends Component {
 	constructor(props) {
@@ -15,10 +16,15 @@ class TrackingWidget extends Component {
             	tired: 12,
 			},
 		}
+		this.addTracking = this.addTracking.bind(this);
 	}
 
     onChange = e => {
         this.setState({ search: e.target.value });
+    }
+
+    addTracking(newTerm) {
+    	this.setState({ terms: {...this.state.terms, [newTerm]: 0 } });
     }
 
 	render() {
@@ -41,7 +47,7 @@ class TrackingWidget extends Component {
 			<div className="tracking-widget">
 				<input className="tracking-searchbar" placeholder="search terms..." onChange={this.onChange} />
 				<br/>
-				<button>Add Term</button>
+				<AddTracking addTracking={this.addTracking}/>
 				{termList}
 			</div>
 		);
