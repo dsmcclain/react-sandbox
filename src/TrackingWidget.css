@@ -1,0 +1,16 @@
+.tracking-widget {
+
+}
+.tracking-columns {
+	display: flex;
+	flex-direction: row;
+}
+.tracking-columns .term-list {
+	text-align: left;
+	width: 50%;
+	margin: .25em;
+}
+.tracking-columns .occurrence-list {
+	text-align: right;
+	width: 50%;
+}
