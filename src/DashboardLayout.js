@@ -5,6 +5,7 @@ import AddWidget from './AddWidget';
 
 import WidgetFrame from './WidgetFrame';
 import HelloWidget from './HelloWidget';
+import TrackingWidget from './TrackingWidget';
 
 class DashboardLayout extends Component {
     constructor(props) {
@@ -14,6 +15,7 @@ class DashboardLayout extends Component {
             widgetTypes: ['Hello Widget', 'Fake Widget'],
             editable: false,
             search: "",
+            terms: ["fever", "diarrhea"],
         };
         this.addPeople = this.addPeople.bind(this);
         this.addWidget = this.addWidget.bind(this);
@@ -39,6 +41,21 @@ class DashboardLayout extends Component {
                     name={name}
                     />
             } />
+        );
+    }
+
+    renderTracking = () => {
+        return (
+            <WidgetFrame
+                editable={this.state.editable}
+                title="Tracked Terms"
+                onRemove={this.onRemove}
+                children = {
+                    <TrackingWidget
+                    terms = {this.state.terms}
+                    />
+                } 
+            />
         );
     }
 
@@ -85,6 +102,7 @@ class DashboardLayout extends Component {
                             return this.renderGreetings(name)
                         })
                     }
+                    {this.renderTracking()}
                 </div>
             </div>
         );
