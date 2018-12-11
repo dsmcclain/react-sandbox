@@ -15,7 +15,6 @@ class DashboardLayout extends Component {
             widgetTypes: ['Hello Widget', 'Fake Widget'],
             editable: false,
             search: "",
-            terms: {fever: 0, congestion: 2},
         };
         this.addPeople = this.addPeople.bind(this);
         this.addWidget = this.addWidget.bind(this);
@@ -50,11 +49,7 @@ class DashboardLayout extends Component {
                 editable={this.state.editable}
                 title="Tracked Terms"
                 onRemove={this.onRemove}
-                children = {
-                    <TrackingWidget
-                    terms = {this.state.terms}
-                    />
-                } 
+                children = { <TrackingWidget/> }
             />
         );
     }
