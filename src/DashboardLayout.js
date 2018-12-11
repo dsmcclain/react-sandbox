@@ -15,7 +15,7 @@ class DashboardLayout extends Component {
             widgetTypes: ['Hello Widget', 'Fake Widget'],
             editable: false,
             search: "",
-            terms: ["fever", "diarrhea"],
+            terms: {fever: 0, congestion: 2},
         };
         this.addPeople = this.addPeople.bind(this);
         this.addWidget = this.addWidget.bind(this);

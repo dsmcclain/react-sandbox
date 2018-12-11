@@ -6,11 +6,16 @@ class TrackingWidget extends Component {
 	}
 
 	render() {
-		return (
-			<div className="TrackingWidget">
-				{this.props.terms}
+		const termList = Object.entries(this.props.terms).map(([key, value]) => {
+			return (
+			<div className="term-list">
+				{key} : {value.toString()}
 			</div>
 			);
+		});
+		return (
+			<div className="TrackingWidget">{termList}</div>
+		);
 	}
 }
 
