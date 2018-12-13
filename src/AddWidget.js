@@ -13,6 +13,7 @@ class AddWidget extends Component {
 
     addHello() {
         this.props.addPeople(this.state.name);
+        this.setState({ name: "" });
     }
 
     onChange = e => {
@@ -23,7 +24,10 @@ class AddWidget extends Component {
         return (
             <div className="add-widget">
                     <div>Hello Widget</div>
-                    <input placeholder="Enter name..." onChange={this.onChange} />
+                    <input className='add-new-name'
+                           placeholder="Enter name..." 
+                           onChange={this.onChange} 
+                           value={this.state.name}/>
                     <button className='add-widget-button'
                             onClick={this.addHello}>Add</button>
             </div>

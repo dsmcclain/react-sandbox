@@ -17,7 +17,6 @@ class DashboardLayout extends Component {
             search: "",
         };
         this.addPeople = this.addPeople.bind(this);
-        this.addWidget = this.addWidget.bind(this);
         this.onRemove = this.onRemove.bind(this);
         this.onEdit = this.onEdit.bind(this);
     }
@@ -62,10 +61,6 @@ class DashboardLayout extends Component {
         this.setState({ people: [...this.state.people, newName] });
     }
 
-    addWidget(newName) {
-        this.setState({ people: [...this.state.people, newName] });
-    }
-
     onRemove(removeName) {
         const filteredPeople = this.state.people.filter(name => {
             return name !== removeName;
@@ -85,10 +80,8 @@ class DashboardLayout extends Component {
                 <div className="editButton">
                     <button  onClick={this.onEdit}>Edit</button>
                 </div>
-                <AddPeople addPeople={this.addPeople} />
                 <input placeholder="search..." onChange={this.onChange} />
                 {this.state.editable && <AddWidget
-                                         widgetTypes = {this.state.widgetTypes} 
                                          addPeople={this.addPeople} 
                                          />}
                 <div className="widget-rows">
