@@ -12,7 +12,7 @@ class DashboardLayout extends Component {
         super(props);
         this.state = { 
             people: ['Jim', 'Beth'],
-            trackingTitle: ['Tracking Widget',],
+            trackingTitle: ['Tracking Widget', 'fake'],
             editable: false,
             search: "",
         };
@@ -44,11 +44,11 @@ class DashboardLayout extends Component {
         );
     }
 
-    renderTracking = () => {
+    renderTracking = (title) => {
         return (
             <WidgetFrame
                 editable={this.state.editable}
-                title={this.state.trackingTitle}
+                title={title}
                 onRemove={this.onRemove}
                 children = { <TrackingWidget/> }
             />
