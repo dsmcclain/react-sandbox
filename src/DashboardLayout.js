@@ -12,13 +12,14 @@ class DashboardLayout extends Component {
         super(props);
         this.state = { 
             people: ['Jim', 'Beth'],
-            trackingTitle: ['Tracking Widget', 'fake'],
+            trackingTitle: ['Tracking Widget'],
             editable: false,
             search: "",
         };
         this.addPeople = this.addPeople.bind(this);
         this.addTracking = this.addTracking.bind(this);
-        this.onRemove = this.onRemove.bind(this);
+        this.removeHello = this.removeHello.bind(this);
+        this.removeTracking = this.removeTracking.bind(this);
         this.onEdit = this.onEdit.bind(this);
     }
 
@@ -33,7 +34,7 @@ class DashboardLayout extends Component {
             <WidgetFrame 
                 editable={this.state.editable} 
                 title={name} 
-                onRemove={this.onRemove}
+                onRemove={this.removeHello}
                 children = {
                     <HelloWidget 
                     key={name} 
@@ -49,7 +50,7 @@ class DashboardLayout extends Component {
             <WidgetFrame
                 editable={this.state.editable}
                 title={title}
-                onRemove={this.onRemove}
+                onRemove={this.removeTracking}
                 children = { <TrackingWidget/> }
             />
         );
@@ -67,11 +68,18 @@ class DashboardLayout extends Component {
         this.setState({ trackingTitle: [...this.state.trackingTitle, newTitle] });
     }
 
-    onRemove(removeName) {
+    removeHello(removeName) {
         const filteredPeople = this.state.people.filter(name => {
             return name !== removeName;
         });
         this.setState({ people:filteredPeople });
+    }
+
+    removeTracking(removeTitle) {
+        const filteredTitles = this.state.trackingTitle.filter(title => {
+            return title !=removeTitle;
+        });
+        this.setState({ trackingTitle:filteredTitles});
     }
 
     onEdit() {
