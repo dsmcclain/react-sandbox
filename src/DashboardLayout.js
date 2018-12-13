@@ -83,6 +83,7 @@ class DashboardLayout extends Component {
                 <input placeholder="search..." onChange={this.onChange} />
                 {this.state.editable && <AddWidget
                                          addPeople={this.addPeople} 
+                                         addTracking={this.renderTracking}
                                          />}
                 <div className="widget-rows">
                     {
