@@ -12,11 +12,12 @@ class DashboardLayout extends Component {
         super(props);
         this.state = { 
             people: ['Jim', 'Beth'],
-            widgetTypes: ['Hello Widget', 'Fake Widget'],
+            trackingTitle: ['Tracking Widget',],
             editable: false,
             search: "",
         };
         this.addPeople = this.addPeople.bind(this);
+        this.addTracking = this.addTracking.bind(this);
         this.onRemove = this.onRemove.bind(this);
         this.onEdit = this.onEdit.bind(this);
     }
@@ -38,7 +39,8 @@ class DashboardLayout extends Component {
                     key={name} 
                     name={name}
                     />
-            } />
+                } 
+            />
         );
     }
 
@@ -46,7 +48,7 @@ class DashboardLayout extends Component {
         return (
             <WidgetFrame
                 editable={this.state.editable}
-                title="Tracked Terms"
+                title={this.state.trackingTitle}
                 onRemove={this.onRemove}
                 children = { <TrackingWidget/> }
             />
@@ -59,6 +61,10 @@ class DashboardLayout extends Component {
 
     addPeople(newName) {
         this.setState({ people: [...this.state.people, newName] });
+    }
+
+    addTracking(newTitle) {
+        this.setState({ trackingTitle: [...this.state.trackingTitle, newTitle] });
     }
 
     onRemove(removeName) {
@@ -83,7 +89,7 @@ class DashboardLayout extends Component {
                 <input placeholder="search..." onChange={this.onChange} />
                 {this.state.editable && <AddWidget
                                          addPeople={this.addPeople} 
-                                         addTracking={this.renderTracking}
+                                         addTracking={this.addTracking}
                                          />}
                 <div className="widget-rows">
                     {
@@ -91,7 +97,11 @@ class DashboardLayout extends Component {
                             return this.renderGreetings(name)
                         })
                     }
-                    {this.renderTracking()}
+                    {
+                        this.state.trackingTitle.map(title => {
+                            return this.renderTracking(title)
+                        })
+                    }
                 </div>
             </div>
         );

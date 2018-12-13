@@ -6,6 +6,7 @@ class AddWidget extends Component {
         super(props);
         this.state = {
             name: "",
+            title: "",
         };
 
         this.addHello = this.addHello.bind(this);
@@ -18,11 +19,16 @@ class AddWidget extends Component {
     }
 
     addTracking() {
-        this.props.addTracking();
+        this.props.addTracking(this.state.title);
+        this.setState({ title: "" });
     }
 
-    onChange = e => {
+    newName = e => {
         this.setState({ name: e.target.value });
+    }
+
+    newTitle = e => {
+        this.setState({ title: e.target.value });
     }
 
     render() {
@@ -32,13 +38,17 @@ class AddWidget extends Component {
                     Hello Widget <br/>
                 <input className='add-new-name'
                        placeholder="Enter name..." 
-                       onChange={this.onChange} 
+                       onChange={this.newName} 
                        value={this.state.name}/>
                 <button className='add-widget-button'
                         onClick={this.addHello}>Add</button>
                 </div>
                 <div className="add-widget-box">
                     Tracking Widget <br/>
+                    <input className='add-new-title'
+                           placeholder="Add tracking title..."
+                           onChange={this.newTitle}
+                           value={this.state.title}/>
                     <button className='add-widget-button'
                             onClick={this.addTracking}>Add</button>
                 </div>
