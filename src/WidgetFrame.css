@@ -1,11 +1,11 @@
 .widget-frame {
     margin: 20px;
     padding: 10px;
-    background: #fff;
+    background: #FFFABA;
     border: 1px solid #E6E9ED;
 }
 .widget-frame-header {
-    border-bottom: 2px solid #E6E9ED;
+    border-bottom: 2px solid #D0D2EA;
     padding: 1px;
     margin-bottom: 10px;
     height: 35px;
